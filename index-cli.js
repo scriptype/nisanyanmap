@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var makeRequest = require('./make-request')
 var parseResults = require('./parse-results')
 
