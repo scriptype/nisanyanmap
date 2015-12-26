@@ -1,6 +1,6 @@
 {
   "name": "nisanyanmap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NisanyanMap — Etymological dictionary of places in Anatolia",
   "main": "dist/index.js",
   "bin": {
@@ -17,8 +17,8 @@
     "anatolia"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/scriptype/nisanyanmap.git"
+    "type": "git",
+    "url": "https://github.com/scriptype/nisanyanmap.git"
   },
   "author": "M. Enes Ertarhanacı",
   "license": "ISC",
