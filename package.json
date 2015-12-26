@@ -16,6 +16,10 @@
     "dictionary",
     "anatolia"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/scriptype/nisanyanmap.git"
+  },
   "author": "M. Enes Ertarhanacı",
   "license": "ISC",
   "devDependencies": {
