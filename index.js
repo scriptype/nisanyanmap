@@ -2,12 +2,12 @@ var makeRequest = require('./make-request')
 var parseResults = require('./parse-results')
 
 module.exports = {
-  get(city, options) {
-    if (!city) {
-      console.warn('Please specify a city name for NisanyanMap.')
+  get(place, options) {
+    if (!place) {
+      console.warn('Please specify a place name for NisanyanMap.')
       return
     }
-    return makeRequest(city)
+    return makeRequest(place)
         .then(result => parseResults(result, options))
         .catch(console.warn)
   }

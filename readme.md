@@ -20,12 +20,13 @@ npm install nisanyanmap
 ```
 
 ## Usage
-Currently programmatic API consists of `get` method which accepts a city 
-name as string and returns a promise object.
+Programmatic API consists of `get` method which accepts a string for place name 
+and an object for passing extra parameters. Currently only parameter available 
+is `verbose`
 
 ```js
 var nisanyanmap = require('nisanyanmap')
-nisanyanmap.get('istanbul').then(console.log)
+nisanyanmap.get('istanbul', { verbose: true }).then(console.log)
 ```
 
 ### CLI
