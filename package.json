@@ -4,7 +4,7 @@
   "description": "NisanyanMap — Etymological dictionary of places in Anatolia",
   "main": "dist/index.js",
   "bin": {
-    "nisanyanmap": "./index-cli.js"
+    "nisanyanmap": "./cli/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

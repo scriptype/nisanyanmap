@@ -2,6 +2,7 @@ var cheerio = require('cheerio')
 
 // Magic constants
 const ENTRY_DELIMITER = '■'
+const HISTORICAL_NAME_DELIMITER = ':'
 const TOP_INFO_AREA_SELECTOR = '.lust'
 const RESULT_ITEM_SELECTOR = '.mli'
 const ADDRESS_SELECTOR = '.ax'
@@ -10,20 +11,19 @@ const NAME_TAG = 'a'
 const TYPE_TAG = 'i'
 
 function isEntry($, section) {
-  var lastChild = $(section).children().last()
-
-  return (
-      $(lastChild).get(0).tagName === 'a' &&
-      $(lastChild).attr('href') === 'javascript:void(0)'
-  )
+  // Has entry delimiter char in it
+  return $(section).text().match(ENTRY_DELIMITER)
 }
 
 function didFindResults($) {
-  // Top info area has text with a number in it.
+  // Top info area has text with a number in ist.
   return /\d+/.test($(TOP_INFO_AREA_SELECTOR).text())
 }
 
-module.exports = function parseResults(result) {
+module.exports = function parseResults(result, options) {
+  'use strict'
+  options = options || { verbose: false }
+
   var $ = cheerio.load(result)
 
   if (!didFindResults($)) {
@@ -46,13 +46,40 @@ module.exports = function parseResults(result) {
 
     $(SECTION_SELECTOR, element).each((i, el) => {
       if (isEntry($, el)) {
-        var lastChild = $(el).children().last()
-        var author = $(lastChild).text()
-        $(lastChild).remove()
+        let $lastChild = $(el).children().last()
+        let author = $lastChild.text()
+        $lastChild.remove()
         _entriesByAuthors.push({ value: $(el).text().trim(), author })
 
       } else {
-        history.push( $(el).text().trim() )
+        if (options.verbose) {
+          let $date = $('span[title]', el).eq(0)
+          let $source = $('.xc', el).eq(0)
+          let $value = $('.axb', el)
+          let historicalEntry = {
+            date: {
+              label: $date.text(),
+              value: $date.attr('title')
+            },
+            value: $value.text()
+          }
+          if ($source.text()) {
+            historicalEntry.source = {
+              label: $source.text(),
+              value: $source.attr('title')
+            }
+          }
+          history.push(historicalEntry)
+        } else {
+          history.push(
+              $(el).text()
+                  .split(HISTORICAL_NAME_DELIMITER)
+                  .reduce((memo, curr, index) => {
+                    memo[index ? 'value' : 'label'] = curr.trim()
+                    return memo
+                  }, {})
+          )
+        }
       }
     })
 
