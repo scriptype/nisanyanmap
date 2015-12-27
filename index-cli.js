@@ -10,7 +10,9 @@ if (process.argv[2] === '--help' ||
   console.log(`
     NisanyanMap — Etymological dictionary of places in Anatolia
     =====
-    Usage: nisanyanmap <city>
+    Usage:
+      nisanyanmap <city>
+      i.e: nisanyanmap istanbul
   `)
 
 } else {
