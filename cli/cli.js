@@ -39,11 +39,11 @@ if (cli.indexOf('--help') > -1 ||
 } else {
 
   if (cli[2] === '-pd' || cli[2] === '--print-dates') {
-    console.log(fs.readFileSync('./cli/dates.json', { encoding: 'utf-8' }))
+    console.log(fs.readFileSync('./dates.json', { encoding: 'utf-8' }))
     return
 
   } else if (cli[2] === '-ps' || cli[2] === '--print-sources') {
-    console.log(fs.readFileSync('./cli/sources.json', { encoding: 'utf-8' }))
+    console.log(fs.readFileSync('./sources.json', { encoding: 'utf-8' }))
     return
   }
 
