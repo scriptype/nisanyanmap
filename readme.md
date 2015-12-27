@@ -1,4 +1,7 @@
 # NisanyanMap
+
+![Screenshot Image](https://raw.githubusercontent.com/scriptype/nisanyanmap/master/screenshot.jpg "Sample result")
+
 [Nisanyan Map](http://nisanyanmap.com) is an etymological dictionary for places 
 in Anatolia, originally prepared by 
 [Sevan Nişanyan](https://en.wikipedia.org/wiki/Sevan_Ni%C5%9Fanyan), a well-known 
