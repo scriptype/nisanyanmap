@@ -28,7 +28,11 @@ var nisanyanmap = require('nisanyanmap')
 nisanyanmap.get('istanbul').then(console.log)
 ```
 
+### CLI
 In command line, there are some additional options
+```
+nisanyanmap <place> <options>
+```
  - `--silent`, `-s`          : Doesn't log what it now searches for
  - `--verbose`, `-v`         : Populate data as much as possible
  - `--print-dates`, `-pd`    : Print explanations of date abbreviations (doesn't contain all abbreviations)

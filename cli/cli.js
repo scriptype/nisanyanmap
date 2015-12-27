@@ -19,7 +19,7 @@ if (cli.indexOf('--help') > -1 ||
     ===
 
     Usage:
-      nisanyanmap <city> <options>
+      nisanyanmap <place> <options>
       e.g: nisanyanmap istanbul
 
     Options:
