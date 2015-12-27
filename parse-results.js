@@ -60,7 +60,7 @@ module.exports = function parseResults(result) {
       memo.push(
           ...currrent.value
               .split(ENTRY_DELIMITER)
-              .map( entry => ({ value: entry, author: currrent.author }) )
+              .map( entry => ({ value: entry.trim(), author: currrent.author }) )
               .filter(entry => !!entry.value)
       )
       return memo
