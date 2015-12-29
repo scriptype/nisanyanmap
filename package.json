@@ -23,6 +23,7 @@
   "author": "M. Enes Ertarhanacı",
   "license": "ISC",
   "devDependencies": {
-    "cheerio": "^0.19.0"
+    "cheerio": "^0.19.0",
+    "tape": "^4.4.0"
   }
 }
