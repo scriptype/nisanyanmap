@@ -29,7 +29,7 @@ input.then(results => {
 
 var suite = {
 
-  ['--no-parameters'](results) {
+  '--no-parameters'(results) {
     test('CLI | No parameters', t => {
 
       t.equal(results.replace(/\s/g, ''), cliUtils.HELP_MESSAGE.replace(/\s/g, ''),

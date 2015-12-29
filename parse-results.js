@@ -1,6 +1,6 @@
 var cheerio = require('cheerio')
 
-// Magic constants
+// Magic strings
 const ENTRY_DELIMITER = '■'
 const HISTORICAL_NAME_DELIMITER = ':'
 const TOP_INFO_AREA_SELECTOR = '.lust'
@@ -9,6 +9,9 @@ const ADDRESS_SELECTOR = '.ax'
 const SECTION_SELECTOR = 'div'
 const NAME_TAG = 'a'
 const TYPE_TAG = 'i'
+const DATE_SELECTOR = 'span[title]'
+const SOURCE_SELECTOR = '.xc'
+const VALUE_SELECTOR = '.axb'
 
 function isEntry($, section) {
   // Has entry delimiter char in it
@@ -53,9 +56,9 @@ module.exports = function parseResults(result, options) {
 
       } else {
         if (options.verbose) {
-          let $date = $('span[title]', el).eq(0)
-          let $source = $('.xc', el).eq(0)
-          let $value = $('.axb', el)
+          let $date = $(DATE_SELECTOR, el).eq(0)
+          let $source = $(SOURCE_SELECTOR, el).eq(0)
+          let $value = $(VALUE_SELECTOR, el)
           let historicalEntry = {
             date: {
               label: $date.text(),

@@ -27,7 +27,7 @@ function extractHistoryKeyOfResults(results, historyKey) {
                     ...curr.history.map(history => (
                         history[historyKey] ? {
                             [history[historyKey].label]: history[historyKey].value
-                        }: {}
+                        } : {}
                     ))
                 )
             ), [])
