@@ -16,7 +16,7 @@ function getVerboseHistoryOf(place) {
   ))[0]
 }
 
-test('.get(istanbul)', t => {
+test('API | .get(istanbul)', t => {
   nisanyanmap
       .get('istanbul')
       .then(results => {
@@ -46,7 +46,7 @@ test('.get(istanbul)', t => {
       })
 })
 
-test('.get(istanbul, { verbose: true })', t => {
+test('API | .get(istanbul, { verbose: true })', t => {
   nisanyanmap
       .get('istanbul', { verbose: true })
       .then(results => {
@@ -60,7 +60,7 @@ test('.get(istanbul, { verbose: true })', t => {
             'Results should contain the expected place')
 
         t.equal(typeof getShallowHistoryOf(expectedPlace), 'undefined',
-            'Results should not contain the default history')
+            'Results should not contain the shallow history')
 
         t.equal(typeof getVerboseHistoryOf(expectedPlace), 'object',
             'Should return verbose history')

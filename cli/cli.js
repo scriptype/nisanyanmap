@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-'use strict'
-
+var fs = require('fs')
 var makeRequest = require('../make-request')
 var parseResults = require('../parse-results')
-var fs = require('fs')
+var cliUtils = require('./cli-utils')
 
 var cli = process.argv
 
@@ -12,29 +11,7 @@ if (cli.indexOf('--help') > -1 ||
     cli.indexOf('-h') > -1 ||
     !cli[2]
 ) {
-  console.log(`
-    NisanyanMap
-    Etymological dictionary of places in Anatolia
-    Contact: M. Enes Ertarhanacı <scriptyper@gmail.com>
-    ===
-
-    Usage:
-      nisanyanmap <place> <options>
-      e.g: nisanyanmap istanbul
-
-    Options:
-      --silent, -s          : Doesn't log what it now searches for
-
-      --verbose, -v         : Populate data as much as possible
-
-      --print-dates, -pd    : Print explanations of date abbreviations
-                              (doesn't contain all abbreviations)
-
-      --print-sources, -ps  : Print explanations of source abbreviations
-                              (doesn't contain all abbreviations)
-
-      --help, -h            : Print this message
-  `)
+  console.log(cliUtils.HELP_MESSAGE)
 
 } else {
 
@@ -50,7 +27,7 @@ if (cli.indexOf('--help') > -1 ||
   if (cli.indexOf('-s') === -1 &&
       cli.indexOf('--silent') === -1
   ) {
-    console.log(`>> nisanyanmap.get.${cli[2]}`)
+    console.log(cliUtils.requestLog(cli[2]))
   }
 
   makeRequest(cli[2])
