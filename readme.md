@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.org/scriptype/nisanyanmap.svg "Build Status")
+
 # NisanyanMap
 
 ![Screenshot Image](https://raw.githubusercontent.com/scriptype/nisanyanmap/master/screenshot.jpg "Sample result")
@@ -10,8 +12,9 @@ Turkish intellectual.
 This module just scrapes data from [nisanyanmap.com](http://nisanyanmap.com) in 
 order to parse agnostic data in JSON format.
 
-As it runs on [NodeJS](http://nodejs.org), you need Node in your system 
-(not tested below 5.2.0). Results are in Turkish.
+As it runs on [NodeJS](http://nodejs.org), you need Node(**>5.2**) in your system.
+
+Results are in Turkish.
 
 
 ## Install
