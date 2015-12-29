@@ -1,4 +1,5 @@
-![Build Status](https://travis-ci.org/scriptype/nisanyanmap.svg "Build Status")
+[![Build Status]
+(https://travis-ci.org/scriptype/nisanyanmap.svg "Build Status")](https://travis-ci.org/scriptype/nisanyanmap)
 
 # NisanyanMap
 
