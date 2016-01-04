@@ -35,5 +35,8 @@ cli_test:
 	@node $(CLI_PATH) -ps | node $(TEST_DIR)/command-line --print-sources | $(BIN)/tap-spec
 	@node $(CLI_PATH) --print-sources | node $(TEST_DIR)/command-line --print-sources | $(BIN)/tap-spec
 
+	@node $(CLI_PATH) -V | node $(TEST_DIR)/command-line --version | $(BIN)/tap-spec
+	@node $(CLI_PATH) --version | node $(TEST_DIR)/command-line --version | $(BIN)/tap-spec
+
 	@node $(CLI_PATH) -h | node $(TEST_DIR)/command-line --help | $(BIN)/tap-spec
 	@node $(CLI_PATH) --help | node $(TEST_DIR)/command-line --help | $(BIN)/tap-spec

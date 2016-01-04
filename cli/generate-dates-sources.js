@@ -17,7 +17,7 @@ var places = [
     'Samsun', 'Siirt', 'Sinop', 'Sivas', 'Tekirdağ', 'Tokat', 'Trabzon', 'Tunceli', 'Şanlıurfa', 'Uşak',
     'Van', 'Yozgat', 'Zonguldak', 'Aksaray', 'Bayburt', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak',
     'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce'
-].map(city => n.get(city, { verbose: true }))
+]
 
 function extractHistoryKeyOfResults(results, historyKey) {
     return results
@@ -48,7 +48,7 @@ function extractHistoryKeyOfResults(results, historyKey) {
 }
 
 Promise
-    .all(places)
+    .all(places.map(city => n.get(city, { verbose: true })))
     .then(results => {
         var extractedKeys = extractHistoryKeyOfResults(results, process.argv[2])
         console.log(JSON.stringify(extractedKeys, null, 2))

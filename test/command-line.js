@@ -3,10 +3,7 @@ var test = require('tape')
 var nisanyanmap = require('..')
 var cliUtils = require('../cli/cli-utils')
 
-var testCase = process.argv[2]
-const TEST_PLACE = 'istanbul'
-
-var input = new Promise((resolve, reject) => {
+var readStdin = new Promise((resolve, reject) => {
   process.stdin
       .setEncoding('utf8')
       .on('readable', () => {
@@ -19,7 +16,11 @@ var input = new Promise((resolve, reject) => {
       })
 })
 
-input.then(results => {
+var testCase = process.argv[2]
+
+const TEST_PLACE = 'istanbul'
+
+readStdin.then(results => {
   suite[testCase](results)
 
 }).catch(error => {
@@ -44,7 +45,7 @@ var suite = {
     test('CLI | <place>', t => {
 
       t.equal(results.replace(/\s/g, ''), cliUtils.requestLog(TEST_PLACE).replace(/\s/g, ''),
-          'Stdout should be equal to request log because --silence isn\'t used')
+          'Stdout should be equal to request log because --silent isn\'t used')
 
       t.end()
 
@@ -72,7 +73,7 @@ var suite = {
     test('CLI | <place> [-v || --verbose]', t => {
 
       t.equal(results.replace(/\s/g, ''), cliUtils.requestLog(TEST_PLACE).replace(/\s/g, ''),
-          'Stdout should be equal to request log because --silence isn\'t used')
+          'Stdout should be equal to request log because --silent isn\'t used')
 
       t.end()
 
@@ -122,8 +123,19 @@ var suite = {
     })
   },
 
+  '--version'(results) {
+    test('CLI | [-V || --version]', t => {
+
+      t.equal(results.replace(/\s/g, ''), require('../package.json').version,
+          'Should print package version correctly.')
+
+      t.end()
+
+    })
+  },
+
   '--help'(results) {
-    test('CLI | Help', t => {
+    test('CLI | [-h || --help]', t => {
 
       t.equal(results.replace(/\s/g, ''), cliUtils.HELP_MESSAGE.replace(/\s/g, ''),
           'Help message should be printed when called with -h or --help')

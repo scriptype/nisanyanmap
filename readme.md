@@ -24,13 +24,21 @@ npm install nisanyanmap
 ```
 
 ## Usage
-Programmatic API consists of `get` method which accepts a string for place name 
-and an object for passing extra parameters. Currently only parameter available 
-is `verbose`
+NisanyanMap can be used both in CL and Node.
+
+#### .get(place, options)
+Accepts a place name and an optional object for parameters (currently only `verbose`).
 
 ```js
 var nisanyanmap = require('nisanyanmap')
 nisanyanmap.get('istanbul', { verbose: true }).then(console.log)
+```
+
+#### .VERSION
+Prints version.
+
+```js
+console.log(nisanyanmap.VERSION)
 ```
 
 ### CLI
@@ -42,6 +50,7 @@ nisanyanmap <place> <options>
  - `--verbose`, `-v`         : Populate data as much as possible
  - `--print-dates`, `-pd`    : Print explanations of date abbreviations (doesn't contain all abbreviations)
  - `--print-sources`, `-ps`  : Print explanations of source abbreviations (doesn't contain all abbreviations)
+ - `--version`, `-V`         : Print version
  - `--help`, `-h`            : Print help message
 
 This module can not be used in client side because of the cross-origin request 

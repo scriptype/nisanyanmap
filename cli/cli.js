@@ -22,6 +22,10 @@ if (cli.indexOf('--help') > -1 ||
   } else if (cli[2] === '-ps' || cli[2] === '--print-sources') {
     console.log(fs.readFileSync(`${__dirname}/sources.json`, { encoding: 'utf-8' }))
     return
+
+  } else if (cli[2] === '-V' || cli[2] === '--version') {
+    console.log(require(`${__dirname}/../package.json`).version)
+    return
   }
 
   if (cli.indexOf('-s') === -1 &&

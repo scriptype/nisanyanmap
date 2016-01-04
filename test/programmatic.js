@@ -69,3 +69,12 @@ test('API | .get(istanbul, { verbose: true })', t => {
 
       })
 })
+
+test('API | .VERSION', t => {
+
+  t.equal(nisanyanmap.VERSION, require('../package.json').version,
+      'Should print package version correctly.')
+
+  t.end()
+
+})
