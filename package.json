@@ -1,6 +1,6 @@
 {
   "name": "nisanyanmap",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "NisanyanMap — Etymological dictionary of places in Anatolia",
   "main": "dist/index.js",
   "bin": {
