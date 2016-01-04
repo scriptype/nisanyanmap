@@ -21,7 +21,7 @@ module.exports = {
       --print-sources, -ps  : Print explanations of source abbreviations
                               (doesn't contain all abbreviations)
 
-      --version             : Print version
+      --version, -V         : Print version
 
       --help, -h            : Print this message
   `,
