@@ -13,7 +13,7 @@ Turkish intellectual.
 This module just scrapes data from [nisanyanmap.com](http://nisanyanmap.com) in 
 order to parse agnostic data in JSON format.
 
-As it runs on [NodeJS](http://nodejs.org), you need Node(**>5.2**) in your system.
+As it runs on [NodeJS](http://nodejs.org), you need Node(**>=5.2**) in your system.
 
 Results are in Turkish.
 
