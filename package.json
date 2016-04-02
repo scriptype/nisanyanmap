@@ -23,11 +23,13 @@
   "author": "M. Enes Ertarhanacı",
   "license": "ISC",
   "devDependencies": {
-    "cheerio": "^0.19.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.4.0"
   },
   "engines": {
     "node": ">=5.2.0"
+  },
+  "dependencies": {
+    "cheerio": "^0.20.0"
   }
 }
